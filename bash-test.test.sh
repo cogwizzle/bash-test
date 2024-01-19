@@ -35,7 +35,7 @@ run_test "Assert not equal passes when values do not match." assert_not_equal_pa
 
 function assert_not_equal_fail() {
     local result
-    result=$(assert_not_equal 1 1)
+    result=$(assert_not_equal 'a' 'a')
     assert_equal "false" "$result"
 }
 run_test "Assert not equal fails when values match." assert_not_equal_fail
