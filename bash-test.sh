@@ -14,7 +14,7 @@ function assert_equal() {
     local left=$1
     local right=$2
     if [ "$left" != "$right" ]; then
-        echo "Left ($left) is not equal to right ($right)." >> /dev/stderr
+        echo "Left ($left) is not equal to right ($right)." > /dev/stderr
         echo false
         return 1
     fi
@@ -32,7 +32,7 @@ function assert_not_equal() {
     local left=$1
     local right=$2
     if [ "$left" == "$right" ]; then
-        echo "Left ($left) is equal to right ($right)." >> /dev/stderr
+        echo "Left ($left) is equal to right ($right)." > /dev/stderr
         echo false
         return 1
     fi
