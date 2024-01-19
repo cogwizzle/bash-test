@@ -103,7 +103,7 @@ function _afterInternal() {
 }
 
 # On exit run the after cleanup function.
-trap "exit" _afterInternal
+trap _afterInternal EXIT
 
 export -f assert_equal
 export -f assert_not_equal
