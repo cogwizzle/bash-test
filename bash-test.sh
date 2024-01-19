@@ -102,8 +102,10 @@ function afterInternal() {
     return $_TEST_FAILED
 }
 
+# On exit run the after cleanup function.
 trap "exit" afterInternal
 
 export -f assert_equal
 export -f assert_not_equal
+export -f group
 export -f test
