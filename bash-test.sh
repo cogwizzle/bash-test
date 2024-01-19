@@ -61,6 +61,12 @@ function run_test() {
     fi
 
     result=$($callback)
+
+    # if after each function is defined run it.
+    if [ "$(type -t after_each)" == "function" ]; then
+        after_each
+    fi
+
     # if result contains false
     if [[ $result == *"false"* ]]; then
         _TEST_FAILED=1
@@ -71,6 +77,24 @@ function run_test() {
     return 0
 }
 
+# Test group runner function.
+#
+# NOTE: You can not nest groups.
+#
+# @param message The message to display.
+# @param callback The callback function to run.
+#
+# @return output from the callback function indented.
+group() {
+    local message=$1
+    local callback=$2
+
+    echo "$message:"
+    # Add four spaces to all output from the callback.
+    $callback | sed 's/^/    /g'
+}
+
+# Internal test function that runs after all test have been run.
 function afterInternal() {
     if [ "$(type -t after)" == "function" ]; then
         after
