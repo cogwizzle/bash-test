@@ -50,7 +50,7 @@ function assert_not_equal() {
 # @param callback The callback function to run.
 #
 # @return true if the test passes, false otherwise.
-function test() {
+function run_test() {
     local message=$1
     local callback=$2
     local result
