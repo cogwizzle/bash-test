@@ -95,7 +95,7 @@ group() {
 }
 
 # Internal test function that runs after all test have been run.
-function afterInternal() {
+function _afterInternal() {
     if [ "$(type -t after)" == "function" ]; then
         after
     fi
@@ -103,9 +103,10 @@ function afterInternal() {
 }
 
 # On exit run the after cleanup function.
-trap "exit" afterInternal
+trap "exit" _afterInternal
 
 export -f assert_equal
 export -f assert_not_equal
 export -f group
-export -f test
+export -f run_test
+export -f _afterInternal
