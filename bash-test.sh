@@ -3,7 +3,6 @@
 _TEST_FAILED=0
 
 # A bash test module.
-# 0.1.0
 
 # Asserts two values are equal.
 #
