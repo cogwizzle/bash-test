@@ -1,0 +1,16 @@
+#!/bin/bash
+
+function require() {
+    local cwd
+    cwd=$(pwd)
+    local file_name=$1
+    local path
+    path=$(/usr/bin/dirname "$cwd/$file_name")
+    local file
+    file=$(/usr/bin/basename "$file_name")
+    cd "$path" || exit 1
+    source "$file"
+    cd "$cwd" || exit 1
+}
+require "$1"
+

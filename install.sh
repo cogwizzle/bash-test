@@ -10,3 +10,5 @@ fi
 mkdir -p vendor
 git clone https://github.com/cogwizzle/bash-test.git vendor/bash-test
 
+# Add require to global command list
+sudo ln -s "$(pwd)/vendor/bash-test/require" "/usr/local/bin/require"
